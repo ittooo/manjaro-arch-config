@@ -1,0 +1,26 @@
+kate/neovim(xsel)/gvim-lily
+
+1.切换vim ~/.vim    ~/.vimrc
+Neovim 是能使用 vim 的配置文件的，如果有 vim 的配置，直接软链接就好：
+$(~) ln -s ~/.vim .config/nvim
+$(~) ln -s ~/.vimrc .config/nvim/init.vim
+
+2.安装插件管理器vim-plug
+ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+使用命令 :PlugInstall 可安装vim配置文件中所有配置的vim插件
+也可以使用 PlugInstall [name ...] 来指定安装某一个或某几个vim插件。
+:PlugStatus 可查看vim插件的当前状态，
+:PlugUpdate [name ...] 用于安装或更新对应vim插件，
+而vim-plug本身的更新则使用命令 :PlugUpgrade。
+
+3.安装配色插件
+    Plug 'altercation/vim-colors-solarized'
+之后修改init.nvim 
+    set background=dark
+    colorscheme solarized
+
+4.curl -sLf https://spacevim.org/cn/install.sh | bash
+
+
+

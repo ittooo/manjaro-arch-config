@@ -1,0 +1,162 @@
+wget https://github.com/ittooo/arch/raw/master/live.sh
+bash live.sh
+
+安装完成后在kde设置-区域-格式里面选择中文区域 #kde汉化
+先pacman -S openssh zsh 并配置sshkey，下载dotfiles。reboot
+1.配置 软件源
+[blackarch]
+SigLevel = Optional TrustedOnly
+Server = https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch
+
+[arch4edu]
+Server = https://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch 
+https://mirrors.tuna.tsinghua.edu.cn/help/arch4edu/
+
+2.驱动问题
+到源服务器archlinux/core/os/x86_64/linux-firmware去下载驱动包，提取对应驱动放入 /usr/lib/firmware/ 中
+https://mirrors.tuna.tsinghua.edu.cn/archlinux/core/os/x86_64/
+
+3.配置交换文件，见wiki
+# fallocate -l 512M /swapfile
+为交换文件设置权限：（交换文件全局可读是一个巨大的本地漏洞）
+# chmod 600 /swapfile
+创建好交换文件后，将其格式化：
+# mkswap /swapfile
+启用交换文件：
+# swapon /swapfile
+最后，编辑 /etc/fstab， 在其中添加如下的一行：
+/etc/fstab
+/swapfile none swap defaults 0 0
+
+4.安装软件 
+intel-ucode#intel微代码固件
+wqy-microhei-kr-patched#字体，解决显示韩语问题
+dolphin#安装Root Actions Servicemenu插件
+
+#安装shell
+sudo pacman -S zsh
+chsh -s /bin/zsh
+(1).插件管理器zinit
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+(2).修改.zshrc
+source ~/.zshrc
+
+#安装neovim(xclip)
+(1).个人配置，vim-plug插件
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+下载完成后PlugInstall
+(2).Spacevim
+curl -sLf https://spacevim.org/cn/install.sh | bash -s -- --install vim
+
+#安装拼音输入法
+(1).图形化配置工具
+sudo pacman -S fcitx-im fcitx-configtool 
+(2).之后需要更改pam_environment（没有则新建）
+sudo nano ~/.pam_environment
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+(3).重启就可以输入中文了。
+(4).输入emoji  https://github.com/levinit/fcitx-emoji
+
+#chrome设置为默认浏览器
+将.html默认打开程序设置为chrome
+
+#kde钱包弹出
+将密码设置为空
+
+5.启动顺序更改
+(1).先观察开机时Grub顺序，注意第一个是0，第二个是1，以此类推
+(2).运行sudo nano /etc/default/grub
+(3).再更改GRUB_DEFAULT=0
+(4).这个0就指启动顺序里0号位置的Manjaro，直接把它更改成Windows的位置，顺带看看“GRUB _TIMEOUT=5”这个代表等待超时时间，数值越小，自动开机等待你手动操作的时间就越少
+(5).设置完成之后，保存退出，最后还得执行一下下面的命令来更新一下系统配置
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+6.设置Nvidia/Intel双显卡
+pacman -S  nvidia
+方案一（性能损失）
+pacman -S  bumblebee  bbswitch  virtualgl  primus 
+sudo systemctl enable bumblebeed
+sudo gpasswd -a $USER bumblebee
+重启。 在你想运行的程序名前面加optirun,好使用独立显卡驱动你的应用程序。
+
+方案二（切换需要注销会话）（optimus-manager仅支持Xorg会话（不支持Wayland）,没有理由在台式计算机上安装bbswitch）
+pacman -S optimus-manager optimus-manager-qt/optimus-manager-qt-kde  bbswitch
+sudo systemctl enable optimus-manager
+
+方案三（独显一直待机状态）
+https://blog.lilydjwg.me/2019/9/3/nvidia-prime-setup.214768.html
+a.取消 /etc/modprobe.d 下有没有黑名单 nvidia 的驱动
+b.Xorg 这边要加一段配置,保存在 /etc/X11/xorg.conf.d/nvidia.conf
+Section "ServerLayout"
+  Identifier "layout"
+  Screen 0 "iGPU"
+  Option "AllowNVIDIAGPUScreens"
+EndSection
+ 
+Section "Device"
+  Identifier "iGPU"
+  Driver "modesetting"
+  BusID "PCI:0:2:0"
+EndSection
+ 
+Section "Screen"
+  Identifier "iGPU"
+  Device "iGPU"
+EndSection
+ 
+Section "Device"
+  Identifier "dGPU"
+  Driver "nvidia"
+EndSection
+#BusID 的值要自己看着 lspci | grep VGA 来改
+c.如果之前是用N卡跑 Xorg 的，需要把 xrandr --setprovideroutputsource modesetting NVIDIA-0 之类的设置去掉
+d.reboot
+e.使用 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia 环境变量来指定使用N卡
+    alias nvrun="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
+    nvrun minecraft-launcher
+
+7.日志输出问题
+添加到/etc/profile
+QT_LOGGING_RULES='*=false'
+export QT_LOGGING_RULES
+
+8.维护
+清除系统中无用的包
+sudo pacman -R $(pacman -Qdtq)
+清除已下载的安装包
+sudo pacman -Scc
+sudo journalctl --vacuum-size=10M
+上面的一些维护动作，也可以通过配置参数设置，配置文件位于/etc/systemd/journald.conf。
+
+9.steam使用独显
+方案一（bumblebee）
+steam 游戏，在游戏上右键->属性，
+设置启动选项，填入
+optirun -b primus %command%
+保存，然后运行游戏即可.
+此时steam使用独显启动游戏。可以打开steam的帧数显示对比一下效果。
+关于完美游戏，比如csgo，dota2，
+启动选项为 
+#国服：optirun -b primus %command% -perfectworld -language schinese
+#国际服：optirun -b primus %command% -language schinese
+方案二（optimus-manager）
+sudo pacman -S lib32-nvidia-utils
+
+10.设置字体
+yay wqy-microhei-kr-patched#安装字体，解决显示韩语问题
+ttf-monaco
+noto-fonts-emoji
+
+fc-cache --force --verbose 
+fc-cache-32 --force --verbose  #刷新字体缓存命令
+
+对于额外的配置目录，本文没有使用，而是将所有的配置指令都直接放在了 fonts.conf 文件中。这不是官方推荐的做法，
+因为软件包升级的时候，fonts.conf 会被强制覆盖，官方推荐将自定义的配置放在 local.conf 文件中。
+但是本文出于两个原因违背了官方的推荐：
+(1)官方推荐的做法将一个配置文件打散为N多个部分，虽然获得了一定的灵活性，但是不便于理解与维护。而本文只是一个示范，易于理解是首要的。
+(2)软件包升级之后，再覆盖一下也很方便。
+
+创建文件/etc/fonts/local.conf，加入配置.

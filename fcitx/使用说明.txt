@@ -1,0 +1,5 @@
+ 将此文件放入～/.config/fcitx/data/
+ 快速输入中即可使用emoji
+
+ 
+ 将皮肤文件夹放入/home/qwe/.config/fcitx/skin/

@@ -1,0 +1,66 @@
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+# ==== 加载功能 ====
+autoload -U compinit && compinit
+# ==== 加载 GitHub 插件 ====
+zplugin light-mode lucid wait for \
+    zdharma/fast-syntax-highlighting \
+    arialdomartini/oh-my-git \
+    lukechilds/zsh-nvm
+     
+zplugin light-mode lucid wait for \
+    atload='_zsh_autosuggest_start' \
+        zsh-users/zsh-autosuggestions \
+    blockf \
+        zsh-users/zsh-completions \
+    as="program" atclone="rm -f ^(rgg|agv)" \
+        lilydjwg/search-and-view \
+    atclone='sed -i "s/\^h/^?/" autopair.zsh' \
+        hlissner/zsh-autopair
+    
+zplugin light hchbaw/zce.zsh
+    
+zplugin ice atclone="dircolors -b LS_COLORS > c.zsh" atpull='%atclone' pick="c.zsh"
+zplugin light trapd00r/LS_COLORS
+
+export AGV_EDITOR='kwrite -l $line -c $col $file'
+
+# ==== 加载 OMZ 插件 ====
+zplugin for \
+    OMZ::lib/clipboard.zsh \
+    OMZ::lib/completion.zsh \
+    OMZ::lib/history.zsh \
+    OMZ::lib/key-bindings.zsh \
+    OMZ::lib/git.zsh \
+    OMZ::lib/theme-and-appearance.zsh \
+    OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh \
+    OMZ::plugins/systemd/systemd.plugin.zsh \
+    OMZ::plugins/sudo/sudo.plugin.zsh   \
+    OMZ::themes/ys.zsh-theme
+    
+zplugin ice curl for \
+    OMZ::plugins/extract \
+    OMZ::plugins/z 
+    
+zplugin as="completion" for \
+    OMZ::plugins/cargo/_cargo \
+    OMZ::plugins/rust/_rust \
+    OMZ::plugins/fd/_fd
+
+# ==== 激活功能 ====
+#自动补全选项
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:default' force-list always
+#修正大小写
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+#补全直接选中菜单项
+setopt menu_complete
+#以下字符视为单词的一部分
+wordchars='*?_-[]~=&;!#$%^(){}<>'
+# ==== 异步主题 ====
+#zplugin light ittooo/pure
+#  autoload -U promptinit; promptinit
+#  zstyle ':prompt:pure:prompt:success' color cyan
+#  zplugin ice lucid wait="!0" pick="async.zsh" src="pure.zsh" #atload="prompt_pure_precmd"
