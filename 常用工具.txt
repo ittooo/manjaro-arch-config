@@ -6,7 +6,7 @@
 	aria2 #下载器
 	wps-office-cn(有登录功能)/wps-office  wps-office-mui-zh-cn ttf-wps-fonts  
 	calibre-python3  #电子书管理
-	chromium-vaapi/google-chrome/firefox
+	chromium-vaapi/google-chrome/firefox(firefox-i18n-zh-cn)
 	fsearch-git/fzf  #搜索工具/命令行搜索
 	bleachbit  #清理工具 
 	p7zip  #压缩7z支持
