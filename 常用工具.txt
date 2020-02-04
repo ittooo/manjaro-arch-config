@@ -17,7 +17,6 @@
 	
 	#系统工具
 	vi #编辑命令
-	tlp #笔记本电池管理,使电源管理生效
 	wget #下载命令
 	net-tools #网络常用命令
 
@@ -33,6 +32,7 @@
 	nvm #通过(zsh-nvm)安装,安装后配置.npmrc文件,管理nodejs
 
 	(2).可选
+	tlp #笔记本电池管理 systemctl enable tlp.service
 	kate/neovim(xclip)/gvim-lily
 	Graphviz#绘制关系图
 	baidupcs
@@ -56,11 +56,11 @@
 	bbswitch#彻底关闭独显
 
 	#KDE常用组件
-	plasma-thunderbolt#雷电接口服务
-	latte-dock  #dock栏
 	ksystemlog  #系统日志管理
 	systemd-kcm #系统服务管理
 	kdeconnect  #链接手机
+	plasma-thunderbolt#雷电接口服务
+	latte-dock  #dock栏
 	kcolorchooser #取色器
 	kolourpaint #画图
 	kbackup #备份
