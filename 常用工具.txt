@@ -4,17 +4,17 @@
 	noto-fonts-emoji
 	latte-dock
 	aria2 #下载器
-	wps-office-cn(有登录功能)/wps-office  wps-office-mui-zh-cn ttf-wps-fonts  
+	wps-office-cn(有登录功能)/wps-office  wps-office-mui-zh-cn ttf-wps-fonts
 	calibre-python3  #电子书管理
 	chromium-vaapi/google-chrome/firefox
 	fsearch-git/fzf  #搜索工具/命令行搜索
-	bleachbit  #清理工具 
+	bleachbit  #清理工具
 	p7zip  #压缩7z支持
 	intel/amd-ucode  #微代码固件
 	ntfs-3g  #ntfs文件系统支持
 	cimatrx
 	neofetch
-	
+
 	#系统工具
 	vi #编辑命令
 	wget #下载命令
@@ -22,7 +22,7 @@
 
 	#网络工具
 	openssh#ssh链接
-	bind  #nslookup 
+	bind  #nslookup
 	openbsd-netcat
 
 	#开发
@@ -33,7 +33,7 @@
 
 	(2).可选
 	tlp #笔记本电池管理 systemctl enable tlp.service
-	kate/neovim(xclip)/gvim-lily
+	kate/neovim(xclip)/gvim
 	Graphviz#绘制关系图
 	baidupcs
 	Motrix#下载器
@@ -42,7 +42,7 @@
 	FeelUOwn Music Player/netease-cloud-music
 	qq-linux
 
-	dsniff 
+	dsniff
 	nmap
 	wireshark-qt
 	ettercap
@@ -50,7 +50,7 @@
 	iperf3  #网络性能测试工具,可以测试最大TCP和UDP带宽性能,C/S
 	tor
 	vidalia #tor可视化
-	
+
 	iotop#磁盘io
 	smartmontools #硬盘检测工具
 	bbswitch#彻底关闭独显
@@ -64,15 +64,15 @@
 	kcolorchooser #取色器
 	kolourpaint #画图
 	kbackup #备份
-    
+
 
 二.AUR
 	octopi#软件包GUI
 	wqy-microhei-kr-patched#字体，解决显示韩语问题
 	xmind-zen#思维导图
-	
+
 三.KDE不常用组件
-	discover oxygen plasma-browser-integration plasma-sdk plasma-thunderbolt plasma-vault plasma-workspace-wallpapers 
+	discover oxygen plasma-browser-integration plasma-sdk plasma-thunderbolt plasma-vault plasma-workspace-wallpapers
 	konqueror kwrite
 	kcharselect kfloppy kgpg ktimer kteatime  sweeper yakuake
 	kruler okular
