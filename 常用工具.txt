@@ -43,6 +43,7 @@
 	gimp#修图
 	kdenlive#剪辑视频
 	virtualbox#虚拟机
+	arc-gtk-theme #主题
 
 	dsniff
 	nmap
