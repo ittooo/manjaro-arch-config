@@ -1,13 +1,11 @@
 一.官方仓库：
     (1).必装
-	zsh
-	noto-fonts-emoji
-	latte-dock
-	aria2 #下载器
 	wps-office-cn(有登录功能)/wps-office  wps-office-mui-zh-cn ttf-wps-fonts
+	fsearch-git/fzf  #搜索工具/命令行搜索
+	noto-fonts-emoji
+	aria2 #下载器
 	calibre-python3  #电子书管理
 	chromium-vaapi/google-chrome/firefox
-	fsearch-git/fzf  #搜索工具/命令行搜索
 	bleachbit  #清理工具
 	p7zip  #压缩7z支持
 	intel/amd-ucode  #微代码固件
@@ -37,10 +35,14 @@
 	Graphviz#绘制关系图
 	baidupcs
 	Motrix#下载器
+	qbittorrent#bt下载
 	telegram-desktop
 	steam/lutris#游戏
 	FeelUOwn Music Player/netease-cloud-music
-	qq-linux
+	qq-linux/deepin-wine-tim
+	gimp#修图
+	kdenlive#剪辑视频
+	virtualbox#虚拟机
 
 	dsniff
 	nmap
