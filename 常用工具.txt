@@ -38,7 +38,7 @@
 	qbittorrent#bt下载
 	telegram-desktop
 	steam/lutris#游戏
-	FeelUOwn Music Player/netease-cloud-music
+	FeelUOwn/netease-cloud-music
 	qq-linux/deepin-wine-tim
 	gimp#修图
 	kdenlive#剪辑视频
