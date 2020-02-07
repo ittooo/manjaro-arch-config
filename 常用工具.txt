@@ -16,7 +16,6 @@
 	#系统工具
 	vi #编辑命令
 	wget #下载命令
-	net-tools #网络常用命令
 
 	#网络工具
 	openssh#ssh链接
