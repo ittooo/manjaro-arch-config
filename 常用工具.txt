@@ -13,9 +13,15 @@
 	cimatrx
 	neofetch
 
-	#系统工具
-	vi #编辑命令
+	#命令行工具
+	neovim #文本编辑器
 	wget #下载命令
+	bat #替代cat
+	ripgrep #替代grep
+	fd #find
+	fzf #模糊搜索
+	smartmontools #硬盘检测工具
+	
 
 	#网络工具
 	openssh#ssh链接
@@ -49,12 +55,13 @@
 	wireshark-qt
 	ettercap
 	tcpdump #路由器几跳
-	iperf3  #网络性能测试工具,可以测试最大TCP和UDP带宽性能,C/S
+	iperf3  #测试最大TCP和UDP带宽性能,C/S
 	tor
 	vidalia #tor可视化
 
+	MyCli #sql补全
+	lrzsz #上传下载文件
 	iotop#磁盘io
-	smartmontools #硬盘检测工具
 	bbswitch#彻底关闭独显
 
 	#KDE常用组件
