@@ -7,7 +7,7 @@
 	calibre-python3  #电子书管理
 	chromium-vaapi/google-chrome/firefox
 	bleachbit  #清理工具
-	p7zip  #压缩7z支持
+	p7zip-natspec #解压.zip不乱码
 	intel/amd-ucode  #微代码固件
 	ntfs-3g  #ntfs文件系统支持
 	cimatrx
@@ -59,7 +59,7 @@
 	tor
 	vidalia #tor可视化
 
-	MyCli #sql补全
+	mycli #sql补全
 	lrzsz #上传下载文件
 	iotop#磁盘io
 	bbswitch#彻底关闭独显
