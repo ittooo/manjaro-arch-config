@@ -41,6 +41,7 @@
 	powerline-fonts ttf-liberation unicode-emoji
 
 	(2).可选
+	pcmanfm-gtk3/thundar #轻量文件管理器
 	tlp #笔记本电池管理
 	kate/neovim(xclip)/gvim
 	Graphviz#绘制关系图
