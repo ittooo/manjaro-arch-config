@@ -14,6 +14,7 @@
 	neofetch
 
 	#命令行工具
+	ranger #文件管理器
 	neovim #文本编辑器
 	wget #下载命令
 	bat #替代cat
