@@ -68,6 +68,7 @@
 	tor
 	vidalia #tor可视化
 
+	intel-gpu-tools#查看iGPU，intel_gpu_top
 	mycli #sql补全
 	lrzsz #上传下载文件
 	iotop#磁盘io
