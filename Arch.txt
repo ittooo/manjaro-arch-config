@@ -70,12 +70,17 @@ XMODIFIERS=@im=fcitx
 将密码设置为空
 
 5.启动顺序更改
+#Grub
 (1).先观察开机时Grub顺序，注意第一个是0，第二个是1，以此类推
 (2).运行sudo nano /etc/default/grub
 (3).再更改GRUB_DEFAULT=0
 (4).这个0就指启动顺序里0号位置的Manjaro，直接把它更改成Windows的位置，顺带看看“GRUB _TIMEOUT=5”这个代表等待超时时间，数值越小，自动开机等待你手动操作的时间就越少
 (5).设置完成之后，保存退出，最后还得执行一下下面的命令来更新一下系统配置
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+#Bootctl
+(1).到/boot/loader/loader.conf设置启动时间
+(2).到/boot/loader/entries/arch.conf设置微代码补丁
 
 6.设置Nvidia/Intel双显卡
 pacman -S  nvidia
