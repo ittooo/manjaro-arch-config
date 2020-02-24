@@ -5,7 +5,7 @@
 	noto-fonts-emoji
 	aria2 #下载器
 	calibre-python3  #电子书管理
-	chromium-vaapi/google-chrome/firefox
+	chromium-vaapi/google-chrome/firefox-developer-edition
 	bleachbit  #清理工具
 	p7zip-natspec #解压.zip不乱码
 	intel/amd-ucode  #微代码固件
@@ -84,6 +84,12 @@
 	kcolorchooser #取色器
 	kolourpaint #画图
 	kbackup #备份
+	
+	#KDE部件
+	dolphin#安装Root Actions Servicemenu插件
+	Netspeed Widget#网速
+	Application title#窗口标题
+
 
 
 二.AUR

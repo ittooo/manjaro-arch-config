@@ -31,7 +31,6 @@ https://mirrors.tuna.tsinghua.edu.cn/archlinux/core/os/x86_64/
 4.安装软件 
 intel-ucode#intel微代码固件
 wqy-microhei-kr-patched#字体，解决显示韩语问题
-dolphin#安装Root Actions Servicemenu插件
 
 #安装shell
 sudo pacman -S zsh
