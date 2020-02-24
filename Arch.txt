@@ -63,6 +63,9 @@ XMODIFIERS=@im=fcitx
 #chrome设置为默认浏览器
 将.html默认打开程序设置为chrome
 
+#firefox设置字体
+除了简体中文外，还有拉丁字母需要单独设置
+
 #kde钱包弹出
 将密码设置为空
 
