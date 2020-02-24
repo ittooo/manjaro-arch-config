@@ -96,7 +96,7 @@ sudo systemctl enable optimus-manager
 
 方案三（独显一直待机状态）
 pacman -S nvidia-prime
-重启。 在你想运行的程序名前面加prime-run,好使用独立显卡驱动你的应用程序。
+重启。 在你想运行的程序名前面加prime-run/nvrun,好使用独立显卡驱动你的应用程序。
 
 
 7.日志输出问题
@@ -124,7 +124,8 @@ optirun -b primus %command%
 #国服：optirun -b primus %command% -perfectworld -language schinese
 #国际服：optirun -b primus %command% -language schinese
 方案二（optimus-manager）
-sudo pacman -S lib32-nvidia-utils
+切换到hybrid
+sudo pacman -S nvrun
 
 10.设置字体
 yay wqy-microhei-kr-patched#安装字体，解决显示韩语问题
