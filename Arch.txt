@@ -83,7 +83,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 (2).到/boot/loader/entries/arch.conf设置微代码补丁
 
 6.设置Nvidia/Intel双显卡
-pacman -S  nvidia
+pacman -S nvidia
 方案一（性能损失）
 pacman -S  bumblebee  bbswitch  virtualgl  primus 
 sudo systemctl enable bumblebeed
@@ -91,40 +91,13 @@ sudo gpasswd -a $USER bumblebee
 重启。 在你想运行的程序名前面加optirun,好使用独立显卡驱动你的应用程序。
 
 方案二（切换需要注销会话）（optimus-manager仅支持Xorg会话（不支持Wayland）,没有理由在台式计算机上安装bbswitch）
-pacman -S optimus-manager optimus-manager-qt/optimus-manager-qt-kde  bbswitch
+pacman -S optimus-manager optimus-manager-qt/optimus-manager-qt-kde bbswitch
 sudo systemctl enable optimus-manager
 
 方案三（独显一直待机状态）
-https://blog.lilydjwg.me/2019/9/3/nvidia-prime-setup.214768.html
-a.取消 /etc/modprobe.d 下有没有黑名单 nvidia 的驱动
-b.Xorg 这边要加一段配置,保存在 /etc/X11/xorg.conf.d/nvidia.conf
-Section "ServerLayout"
-  Identifier "layout"
-  Screen 0 "iGPU"
-  Option "AllowNVIDIAGPUScreens"
-EndSection
- 
-Section "Device"
-  Identifier "iGPU"
-  Driver "modesetting"
-  BusID "PCI:0:2:0"
-EndSection
- 
-Section "Screen"
-  Identifier "iGPU"
-  Device "iGPU"
-EndSection
- 
-Section "Device"
-  Identifier "dGPU"
-  Driver "nvidia"
-EndSection
-#BusID 的值要自己看着 lspci | grep VGA 来改
-c.如果之前是用N卡跑 Xorg 的，需要把 xrandr --setprovideroutputsource modesetting NVIDIA-0 之类的设置去掉
-d.reboot
-e.使用 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia 环境变量来指定使用N卡
-    alias nvrun="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
-    nvrun minecraft-launcher
+pacman -S nvidia-prime
+重启。 在你想运行的程序名前面加prime-run,好使用独立显卡驱动你的应用程序。
+
 
 7.日志输出问题
 添加到/etc/profile
