@@ -68,6 +68,7 @@
 	tor
 	vidalia #tor可视化
 
+	acpi#访问系统状态
 	intel-gpu-tools#查看iGPU，intel_gpu_top
 	mycli #sql补全
 	lrzsz #上传下载文件
