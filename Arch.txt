@@ -124,7 +124,8 @@ optirun -b primus %command%
 #国际服：optirun -b primus %command% -language schinese
 方案二（optimus-manager）
 切换到hybrid
-sudo pacman -S nvrun
+设置启动选项，填入
+__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia %command%
 
 10.设置字体
 yay wqy-microhei-kr-patched#安装字体，解决显示韩语问题
