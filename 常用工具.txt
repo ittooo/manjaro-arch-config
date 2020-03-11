@@ -57,7 +57,7 @@
 	gimp#修图
 	kdenlive#剪辑视频
 	virtualbox#虚拟机(virtualbox-guest-iso 增强工具)
-        FileZilla#FTP工具 虚拟机传输
+	FileZilla#FTP工具 虚拟机传输
 	arc-gtk-theme #主题
 
 	dsniff
