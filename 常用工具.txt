@@ -29,6 +29,7 @@
 	#网络工具
 	openssh#ssh链接
 	bind  #nslookup
+	mtr #ping和traceroute结合
 	openbsd-netcat
 
 	#开发
