@@ -30,6 +30,7 @@
 	openssh#ssh链接
 	bind  #nslookup
 	mtr #ping和traceroute结合
+	besttrace #traceroute加强版，显示归属地
 	openbsd-netcat
 
 	#开发
