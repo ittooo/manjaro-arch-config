@@ -47,7 +47,7 @@ XMODIFIERS=@im=fcitx
 
 #安装deepinQQ,现有linux版QQ
 yay -S deepin-wine-tim
-//kde环境下,如果Tim无法启动 安装sudo pacman -S gnome settings daemon
+//kde环境下,如果Tim无法启动 安装sudo pacman -S xsettingsd
 // /etc/xdg/autostart文件夹 将org.gnome.SettingsDaemon.XSettings.desktop复制到~home/用户名/.config/autostart文件夹
 .config是一个隐藏文件夹，Ctrl+h可以显示
 完成后前往设置，开关机，自动启动将插件状态设置为启动
