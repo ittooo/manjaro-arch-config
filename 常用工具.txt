@@ -38,6 +38,7 @@
 	python-pip
 	python-pipenv#python虚拟化工具
 	nvm #通过(zsh-nvm)安装,安装后配置.npmrc文件,管理nodejs
+	android-tools(adb)#可能需要android-udev，通过USB调试删除手机中的软件
 
 	#字体
 	monaco 文泉驿
