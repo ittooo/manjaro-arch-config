@@ -1,6 +1,7 @@
 一.官方仓库：
     (1).必装
 	wps-office-cn(有登录功能)/wps-office  wps-office-mui-zh-cn ttf-wps-fonts
+	typora #makedown编辑器
 	fsearch-git/fzf  #搜索工具/命令行搜索
 	noto-fonts-emoji
 	aria2 #下载器
