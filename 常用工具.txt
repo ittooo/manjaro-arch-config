@@ -53,10 +53,11 @@
 	Graphviz#绘制关系图
 	baidupcs
 	Motrix#下载器
+	Anki#卡片学习
 	qbittorrent#bt下载
 	telegram-desktop
 	steam/lutris#游戏
-	FeelUOwn/netease-cloud-music/lx-music-desktop
+	lx-music-desktop/FeelUOwn/netease-cloud-music
 	qq-linux/deepin-wine-tim
 	gimp#修图
 	kdenlive#剪辑视频
