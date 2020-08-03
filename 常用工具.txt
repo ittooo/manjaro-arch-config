@@ -13,7 +13,7 @@
 	ntfs-3g  #ntfs文件系统支持
 	cimatrx
 	neofetch
-
+	
 	#命令行工具
 	man #帮助手册
 	ranger #文件管理器
@@ -53,6 +53,7 @@
 	Graphviz#绘制关系图
 	baidupcs
 	Motrix#下载器
+	drawio-desktop-bin #绘制流程图
 	Anki#卡片学习
 	qbittorrent#bt下载
 	telegram-desktop
