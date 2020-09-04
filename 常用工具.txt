@@ -33,6 +33,7 @@
 	mtr #ping和traceroute结合
 	besttrace #traceroute加强版，显示归属地
 	openbsd-netcat
+	hping #tcping
 
 	#开发
 	vscodium-bin/code #Settings Sync同步插件
@@ -66,11 +67,11 @@
 	FileZilla#FTP工具 虚拟机传输
 	arc-gtk-theme #主题
 
-	dsniff
+	dsniff #嗅探
+	ettercap
 	nmap
 	wireshark-qt
-	ettercap
-	tcpdump #路由器几跳
+	tcpdump #抓包
 	iperf3  #测试最大TCP和UDP带宽性能,C/S
 	tor
 	vidalia #tor可视化
