@@ -67,11 +67,10 @@
 	FileZilla#FTP工具 虚拟机传输
 	arc-gtk-theme #主题
 
-	dsniff #嗅探
-	ettercap
 	nmap
 	wireshark-qt
 	tcpdump #抓包
+	ssldump
 	iperf3  #测试最大TCP和UDP带宽性能,C/S
 	tor
 	vidalia #tor可视化
