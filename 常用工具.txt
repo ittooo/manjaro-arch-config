@@ -52,7 +52,7 @@
 	colord #色彩管理 colord-kde colord-gtk gnome-color-management
 	pcmanfm-gtk3/thundar #轻量文件管理器
 	powertop #查看耗电情况
-	tlp+tlp-rdw#笔记本电池管理systemctl enable tlp.service
+	tlp tlp-rdw#笔记本电池管理systemctl enable tlp.service
 	kate/neovim(xclip)/gvim
 	Graphviz#绘制关系图
 	baidupcs
